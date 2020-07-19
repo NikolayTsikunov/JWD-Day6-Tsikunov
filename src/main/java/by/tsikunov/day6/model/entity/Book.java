@@ -19,6 +19,14 @@ public class Book {
         this.pages = pages;
     }
 
+    public Book(long bookId, String title, List<String> authors, int publicationYear, int pages) {
+        this.bookId = bookId;
+        this.title = title;
+        this.authors = authors;
+        this.publicationYear = publicationYear;
+        this.pages = pages;
+    }
+
     public long getBookId() {
         return bookId;
     }

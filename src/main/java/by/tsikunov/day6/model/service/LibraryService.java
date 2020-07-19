@@ -1,32 +1,30 @@
 package by.tsikunov.day6.model.service;
 
 import by.tsikunov.day6.model.entity.Book;
-
-import java.util.List;
-import java.util.Optional;
+import by.tsikunov.day6.model.service.response.Response;
 
 public interface LibraryService {
-    boolean addBook(Book book);
+    Response addBook(Book book);
 
-    boolean removeBook(Book book);
+    Response removeBook(Book book);
 
-    Optional<Book> findById(long bookId);
+    Response findById(long bookId);
 
-    List<Book> findByTitle(String title);
+    Response findByTitle(String title);
 
-    List<Book> findByAuthor(String author);
+    Response findByAuthor(String author);
 
-    List<Book> findByYearPublication(int yearPublication);
+    Response findByPublicationYear(int yearPublication);
 
-    List<Book> findByPages(int pages);
+    Response findByPages(int pages);
 
-    List<Book> sortById();
+    Response sortById();
 
-    List<Book> sortByTitle();
+    Response sortByTitle();
 
-    List<Book> sortByAuthor();
+    Response sortByAuthor();
 
-    List<Book> sortByPublicationYear();
+    Response sortByPublicationYear();
 
-    List<Book> sortByPages();
+    Response sortByPages();
 }
