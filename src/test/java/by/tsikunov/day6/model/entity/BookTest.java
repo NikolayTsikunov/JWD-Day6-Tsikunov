@@ -16,5 +16,7 @@ public class BookTest {
         System.out.println(list.remove("YYYY"));
         Book book = new Book( "MMMM", list, 1999, 500);
         book.toString();
+        //String str = null;
+        //boolean is = str.isBlank();
     }
 }
