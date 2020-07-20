@@ -28,12 +28,6 @@ public class LibraryServiceImplTest {
         TestBooksStorage.resetLibrary();
     }
 
-//    Book book = new Book("Three comrades", new ArrayList<>(Arrays.asList("E. M. Remarque")),
-//            1936, 496);
-//Book book = new Book("Good Signs",
-//        new ArrayList<>(Arrays.asList("T.Pratchett", "N.Gaiman")), 2010, 840);
-
-
     @Test
     public void testAddBookPositive() {
         Book book = new Book("Three comrades",
