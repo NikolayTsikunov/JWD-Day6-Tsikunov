@@ -41,7 +41,8 @@ public class Library {
     public boolean addBook(Book book) {
         boolean result = false;
 
-        if (!books.contains(book) && books.size() < MAX_CAPACITY) {
+        if (books.size() < MAX_CAPACITY) {
+            book = hasBook(book);
             result = books.add(book);
         }
 
@@ -49,7 +50,18 @@ public class Library {
     }
 
     public boolean removeBook(Book book) {
+        book = hasBook(book);
         return books.remove(book);
+    }
+
+    private Book hasBook(Book book) {
+        for (Book searchingBook : books) {
+            if(searchingBook.equalsWithoutId(book)) {
+                book = searchingBook;
+                break;
+            }
+        }
+        return book;
     }
 
 }

@@ -18,6 +18,8 @@ public interface LibraryService {
 
     Response findByPages(int pages);
 
+    Response findAll();
+
     Response sortById();
 
     Response sortByTitle();

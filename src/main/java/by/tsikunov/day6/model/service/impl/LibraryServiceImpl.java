@@ -17,7 +17,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         boolean result = bookListDao.add(book);
-        response.setStatus(result);
         if(result) {
             response.setMessage("Book successfully added.");
         } else {
@@ -32,7 +31,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         boolean result = bookListDao.remove(book);
-        response.setStatus(result);
         if(result) {
             response.setMessage("Book successfully removed.");
         } else {
@@ -43,16 +41,24 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
+    public Response findAll() {
+        BookListDao bookListDao = new BookListDaoImpl();
+        Response response = new Response();
+        List<Book> books = bookListDao.findAll();
+        response.setMessage("All books");
+        response.setResultBooks(books);
+        return response;
+    }
+
+    @Override
     public Response findById(long bookId) {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         Optional<Book> book = bookListDao.findById(bookId);
         if(book.isEmpty()) {
-            response.setStatus(false);
             response.setMessage(String.format("Can't find book by id {%d}", bookId));
             response.setResultBooks(new ArrayList<>());
         } else {
-            response.setStatus(true);
             response.setMessage("The book has found.");
             response.setResultBooks(Arrays.asList(book.get()));
         }
@@ -65,10 +71,8 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         List<Book> books = bookListDao.findByTitle(title);
         if(books.isEmpty()) {
-            response.setStatus(false);
             response.setMessage(String.format("Can't find books with this title {%s}", title));
         } else {
-            response.setStatus(true);
             response.setMessage("The books have found.");
         }
         response.setResultBooks(books);
@@ -81,10 +85,8 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         List<Book> books = bookListDao.findByAuthor(author);
         if(books.isEmpty()) {
-            response.setStatus(false);
             response.setMessage(String.format("Can't find books with this author {%s}", author));
         } else {
-            response.setStatus(true);
             response.setMessage("The books have found.");
         }
         response.setResultBooks(books);
@@ -97,10 +99,8 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         List<Book> books = bookListDao.findByPublicationYear(publicationYear);
         if(books.isEmpty()) {
-            response.setStatus(false);
             response.setMessage(String.format("Can't find books with this publication year {%d}", publicationYear));
         } else {
-            response.setStatus(true);
             response.setMessage("The books have found.");
         }
         response.setResultBooks(books);
@@ -113,10 +113,8 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         List<Book> books = bookListDao.findByPages(pages);
         if(books.isEmpty()) {
-            response.setStatus(false);
             response.setMessage(String.format("Can't find books with this count of pages {%d}", pages));
         } else {
-            response.setStatus(true);
             response.setMessage("The books have found.");
         }
         response.setResultBooks(books);
@@ -128,7 +126,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         List<Book> books = bookListDao.sortById();
-        response.setStatus(true);
         response.setMessage("Sorted list by id");
         response.setResultBooks(books);
         return response;
@@ -139,7 +136,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         List<Book> books = bookListDao.sortByTitle();
-        response.setStatus(true);
         response.setMessage("Sorted list by title");
         response.setResultBooks(books);
         return response;
@@ -150,7 +146,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         List<Book> books = bookListDao.sortByAuthor();
-        response.setStatus(true);
         response.setMessage("Sorted list by author");
         response.setResultBooks(books);
         return response;
@@ -161,7 +156,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         List<Book> books = bookListDao.sortByPublicationYear();
-        response.setStatus(true);
         response.setMessage("Sorted list by publication year");
         response.setResultBooks(books);
         return response;
@@ -172,7 +166,6 @@ public class LibraryServiceImpl implements LibraryService {
         BookListDao bookListDao = new BookListDaoImpl();
         Response response = new Response();
         List<Book> books = bookListDao.sortByPages();
-        response.setStatus(true);
         response.setMessage("Sorted list by count of pages");
         response.setResultBooks(books);
         return response;

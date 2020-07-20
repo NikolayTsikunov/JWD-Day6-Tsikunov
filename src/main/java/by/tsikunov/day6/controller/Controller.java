@@ -18,7 +18,7 @@ public class Controller {
 
     public Map<String, String> executeBookCommand(String command, Map<String, String> entryData) {
         CommandProvider commandProvider = new CommandProvider();
-        ExecutedCommand executedCommand = commandProvider.provideCommand(entryData.get("command"));
+        ExecutedCommand executedCommand = commandProvider.provideCommand(command);
         return executedCommand.execute(entryData);
     }
 }

@@ -1,6 +1,6 @@
 package by.tsikunov.day6.model.entity;
 
-import by.tsikunov.day6.util.IdGenerator;
+import by.tsikunov.day6.model.util.IdGenerator;
 
 import java.util.List;
 
@@ -19,13 +19,6 @@ public class Book {
         this.pages = pages;
     }
 
-    public Book(long bookId, String title, List<String> authors, int publicationYear, int pages) {
-        this.bookId = bookId;
-        this.title = title;
-        this.authors = authors;
-        this.publicationYear = publicationYear;
-        this.pages = pages;
-    }
 
     public long getBookId() {
         return bookId;
@@ -67,6 +60,12 @@ public class Book {
         this.pages = pages;
     }
 
+    public boolean equalsWithoutId(Book book) {
+        return title .equals(book.title) &&
+                authors.equals(book.authors) &&
+                publicationYear == book.publicationYear &&
+                pages == book.pages;
+    }
 
     @Override
     public boolean equals(Object o) {

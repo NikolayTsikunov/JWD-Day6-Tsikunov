@@ -1,8 +1,10 @@
 package by.tsikunov.day6.model.entity;
 
+import by.tsikunov.day6.creator.BookCreator;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -10,7 +12,7 @@ public class BookTest {
 
     @Test
     public void testTestToString() {
-        ArrayList<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add("Mama");
         System.out.println(list.add("Papa"));
         System.out.println(list.remove("YYYY"));
@@ -18,5 +20,8 @@ public class BookTest {
         book.toString();
         //String str = null;
         //boolean is = str.isBlank();
+
+        //BookCreator creator = new BookCreator();
+        //list = creator.createListAuthors("Mama, Papa,, Tola");
     }
 }

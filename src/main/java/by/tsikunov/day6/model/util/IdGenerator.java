@@ -1,4 +1,4 @@
-package by.tsikunov.day6.util;
+package by.tsikunov.day6.model.util;
 
 public class IdGenerator {
     private static final long MIN_ID = 1;

@@ -8,19 +8,14 @@ import by.tsikunov.day6.model.service.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FindByTitleCommand implements ExecutedCommand {
-    private static final String TITLE = "title";
+public class FindAllCommand implements ExecutedCommand {
     @Override
     public Map<String, String> execute(Map<String, String> parameters) {
         LibraryService service = new LibraryServiceImpl();
         Map<String, String> result = new HashMap<>();
-        if(parameters.containsKey(TITLE)) {
-            Response response = service.findByTitle(parameters.get(TITLE));
-            result.put("Message", response.getMessage());
-            result.put("Storage", response.getResultBooks().toString());
-        } else {
-            result.put("Message", "Empty entry data");
-        }
+        Response response = service.findAll();
+        result.put("Message", response.getMessage());
+        result.put("Storage", response.getResultBooks().toString());
         return result;
     }
 }

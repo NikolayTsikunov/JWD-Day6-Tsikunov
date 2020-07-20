@@ -5,17 +5,8 @@ import by.tsikunov.day6.model.entity.Book;
 import java.util.List;
 
 public class Response {
-    private boolean status;
     private String message;
     private List<Book> resultBooks;
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 
     public String getMessage() {
         return message;
