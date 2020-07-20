@@ -18,9 +18,9 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         boolean result = bookListDao.add(book);
         if(result) {
-            response.setMessage("Book successfully added.");
+            response.setMessage("Book successfully added");
         } else {
-            response.setMessage("Can't add book.");
+            response.setMessage("Can't add book");
         }
         response.setResultBooks(bookListDao.findAll());
         return response;
@@ -32,9 +32,9 @@ public class LibraryServiceImpl implements LibraryService {
         Response response = new Response();
         boolean result = bookListDao.remove(book);
         if(result) {
-            response.setMessage("Book successfully removed.");
+            response.setMessage("Book successfully removed");
         } else {
-            response.setMessage("Can't remove book.");
+            response.setMessage("Can't remove book");
         }
         response.setResultBooks(bookListDao.findAll());
         return response;
@@ -59,7 +59,7 @@ public class LibraryServiceImpl implements LibraryService {
             response.setMessage(String.format("Can't find book by id {%d}", bookId));
             response.setResultBooks(new ArrayList<>());
         } else {
-            response.setMessage("The book has found.");
+            response.setMessage("The book has found");
             response.setResultBooks(Arrays.asList(book.get()));
         }
         return response;
@@ -73,7 +73,7 @@ public class LibraryServiceImpl implements LibraryService {
         if(books.isEmpty()) {
             response.setMessage(String.format("Can't find books with this title {%s}", title));
         } else {
-            response.setMessage("The books have found.");
+            response.setMessage("The books have found");
         }
         response.setResultBooks(books);
         return response;
@@ -87,7 +87,7 @@ public class LibraryServiceImpl implements LibraryService {
         if(books.isEmpty()) {
             response.setMessage(String.format("Can't find books with this author {%s}", author));
         } else {
-            response.setMessage("The books have found.");
+            response.setMessage("The books have found");
         }
         response.setResultBooks(books);
         return response;
@@ -101,7 +101,7 @@ public class LibraryServiceImpl implements LibraryService {
         if(books.isEmpty()) {
             response.setMessage(String.format("Can't find books with this publication year {%d}", publicationYear));
         } else {
-            response.setMessage("The books have found.");
+            response.setMessage("The books have found");
         }
         response.setResultBooks(books);
         return response;
@@ -115,7 +115,7 @@ public class LibraryServiceImpl implements LibraryService {
         if(books.isEmpty()) {
             response.setMessage(String.format("Can't find books with this count of pages {%d}", pages));
         } else {
-            response.setMessage("The books have found.");
+            response.setMessage("The books have found");
         }
         response.setResultBooks(books);
         return response;
