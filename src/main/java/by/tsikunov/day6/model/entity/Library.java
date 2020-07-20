@@ -40,9 +40,8 @@ public class Library {
 
     public boolean addBook(Book book) {
         boolean result = false;
-
-        if (books.size() < MAX_CAPACITY) {
-            book = hasBook(book);
+        book = hasBook(book);
+        if (!books.contains(book) && books.size() < MAX_CAPACITY) {
             result = books.add(book);
         }
 
